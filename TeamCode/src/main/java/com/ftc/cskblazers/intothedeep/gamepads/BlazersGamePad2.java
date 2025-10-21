@@ -19,16 +19,15 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void stickOperation(BlazersRobot robot) {
         if (gamepad.dpad_up){
-            robot.rotateOutboundClawForward();
+
         }
         if (gamepad.dpad_down){
-            robot.rotateOutboundClawBackward();
+
         }
         if (gamepad.dpad_left){
-            robot.inboundClawDown();
         }
         if (gamepad.dpad_right){
-            robot.inboundClawUp();
+
         }
 
 
@@ -38,10 +37,10 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     public void triggerOperation(BlazersRobot robot) {
 
         if(gamepad.right_trigger>0){
-            robot.moveHangerDown();
+            robot.shootBackward();
            // robot.printOutboundTelemetry("Left Trigger");
         }else if(gamepad.left_trigger>0){
-            robot.moveHangerUp();
+            robot.intakeBackward();
             //robot.printOutboundTelemetry("Right Trigger");
         }else{
             if(!gamepad.a) {
@@ -55,19 +54,18 @@ public  class BlazersGamePad2 implements BlazersGamePad{
 
 
         if(gamepad.right_bumper) {
-            //robot.printOutboundTelemetry("Right Bumper");
-            robot.outboundSpecimenPick();
-            System.out.println("Right Bumper Pressed");
+
+            //System.out.println("Right Bumper Pressed");
         }else if(gamepad.left_bumper){
-            System.out.println("Left Bumper Pressed");
-            robot.outboundSpecimenDrop();
+            //System.out.println("Left Bumper Pressed");
+
         }
     }
     //change
     @Override
     public void buttonAPress(BlazersRobot robot) {
         if(gamepad.a) {
-            robot.closeOutboundClaw();
+
         }
 
     }
@@ -75,21 +73,21 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void buttonBPress(BlazersRobot robot) {
         if(gamepad.b) {
-            robot.outboundToTop();
+
         }
     }
 
     @Override
     public void buttonXPress(BlazersRobot robot) {
         if (gamepad.x){
-            robot.liftMe();
+
         }
     }
 
     @Override
     public void buttonYPress(BlazersRobot robot) {
         if(gamepad.y) {
-           robot.openOutboundClaw();
+
         }
     }
 }

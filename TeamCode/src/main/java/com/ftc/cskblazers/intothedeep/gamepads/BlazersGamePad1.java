@@ -26,11 +26,11 @@ public class BlazersGamePad1 implements BlazersGamePad{
     @Override
     public void triggerOperation(BlazersRobot robot) {
         if(gamepad.left_trigger>0){
+            robot.intakeForward();
             //System.out.println("Left Trigger");
-            robot.extendInbound();
         }else if(gamepad.right_trigger>0){
+            robot.shoot();
             //System.out.println("Right Trigger");
-            robot.compressInbound();
         }
 
     }
@@ -38,10 +38,8 @@ public class BlazersGamePad1 implements BlazersGamePad{
     @Override
     public void bumperOperation(BlazersRobot robot) {
         if(gamepad.right_bumper) {
-            robot.inboundRotateClock();
             //System.out.println("Right Bumper Pressed");
         }else if(gamepad.left_bumper){
-            robot.inboundRotateCounterclock();
             //System.out.println("Left Bumper Pressed");
         }
     }
@@ -49,28 +47,27 @@ public class BlazersGamePad1 implements BlazersGamePad{
     @Override
     public void buttonAPress(BlazersRobot robot) {
         if(gamepad.a) {
-            robot.startPositions();
         }
     }
 
     @Override
     public void buttonBPress(BlazersRobot robot) {
         if(gamepad.b) {
-            robot.openInboundClaw();
+
         }
     }
 
     @Override
     public void buttonXPress(BlazersRobot robot) {
         if(gamepad.x) {
-            robot.closeInboundClaw();
+
         }
     }
 
     @Override
     public void buttonYPress(BlazersRobot robot) {
         if(gamepad.y) {
-            robot.transfer();
+
         }
     }
 }
