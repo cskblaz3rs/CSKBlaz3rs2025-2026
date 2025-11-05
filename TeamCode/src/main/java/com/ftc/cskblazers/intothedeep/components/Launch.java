@@ -17,13 +17,17 @@ public class Launch {
     }
 
     public void shootForward (){
-        launch.setDirection(DcMotorSimple.Direction.FORWARD);
-        launch.setPower(1.0);
+        launch.setDirection(DcMotorSimple.Direction.REVERSE);
+        launch.setPower(0.7);
+
+    }
+    public void shootStop(){
+        launch.setPower(0.0);
 
     }
     public void shootBackward(){
-        launch.setDirection(DcMotorSimple.Direction.REVERSE);
-        launch.setPower(0.5);
+        launch.setDirection(DcMotorSimple.Direction.FORWARD);
+        launch.setPower(1.0);
     }
 
 }

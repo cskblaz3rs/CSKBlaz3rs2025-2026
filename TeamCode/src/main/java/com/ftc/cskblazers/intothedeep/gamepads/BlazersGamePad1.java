@@ -6,6 +6,7 @@ import com.ftc.cskblazers.intothedeep.BlazersRobot;
 
 public class BlazersGamePad1 implements BlazersGamePad{
     private Gamepad gamepad;
+    private boolean shootOn=false;
     //change
     public BlazersGamePad1(Gamepad gamepad){
         init(gamepad);
@@ -28,11 +29,15 @@ public class BlazersGamePad1 implements BlazersGamePad{
         if(gamepad.left_trigger>0){
             robot.intakeForward();
             //System.out.println("Left Trigger");
-        }else if(gamepad.right_trigger>0){
-            robot.shoot();
-            //System.out.println("Right Trigger");
+        } else if (gamepad.left_trigger<=0) {
+            robot.stopIntake();
         }
-
+        if(gamepad.right_trigger>0){
+            //robot.intakeBackward();
+            //System.out.println("Right Trigger");
+        } else if(gamepad.right_trigger<=0) {
+            //robot.stopIntake();
+        }
     }
 
     @Override
@@ -47,6 +52,7 @@ public class BlazersGamePad1 implements BlazersGamePad{
     @Override
     public void buttonAPress(BlazersRobot robot) {
         if(gamepad.a) {
+
         }
     }
 
@@ -55,11 +61,14 @@ public class BlazersGamePad1 implements BlazersGamePad{
         if(gamepad.b) {
 
         }
+
+
     }
 
     @Override
     public void buttonXPress(BlazersRobot robot) {
         if(gamepad.x) {
+            robot.releaseArtifact();
 
         }
     }
@@ -67,6 +76,7 @@ public class BlazersGamePad1 implements BlazersGamePad{
     @Override
     public void buttonYPress(BlazersRobot robot) {
         if(gamepad.y) {
+            robot.holdArtifact();
 
         }
     }

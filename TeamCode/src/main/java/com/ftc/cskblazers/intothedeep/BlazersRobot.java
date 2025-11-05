@@ -68,8 +68,20 @@ public class BlazersRobot {
     public void shoot(){
         launch.shootForward();
     }
+    public void stopShoot(){
+        launch.shootStop();
+    }
+    public void stopIntake(){
+        intake.stopIntake();
+    }
     public void shootBackward(){
         launch.shootBackward();
+    }
+    public void releaseArtifact(){
+        intake.releaseArtifact();
+    }
+    public void holdArtifact(){
+        intake.holdArtifact();
     }
 
 

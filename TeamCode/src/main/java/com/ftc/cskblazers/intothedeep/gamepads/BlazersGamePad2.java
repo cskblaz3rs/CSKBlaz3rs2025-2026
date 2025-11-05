@@ -7,6 +7,7 @@ import com.ftc.cskblazers.intothedeep.BlazersRobot;
 public  class BlazersGamePad2 implements BlazersGamePad{
 
     private  Gamepad gamepad;
+    private boolean shootOn=false;
 
     public BlazersGamePad2(Gamepad gamepad){
         init(gamepad);
@@ -36,16 +37,15 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void triggerOperation(BlazersRobot robot) {
 
-        if(gamepad.right_trigger>0){
+        if(gamepad.right_trigger>0) {
+
+        } else if (gamepad.right_trigger<=0) {
+
+        }
+        if(gamepad.left_trigger>0){
             robot.shootBackward();
-           // robot.printOutboundTelemetry("Left Trigger");
-        }else if(gamepad.left_trigger>0){
-            robot.intakeBackward();
-            //robot.printOutboundTelemetry("Right Trigger");
-        }else{
-            if(!gamepad.a) {
-               // robot.stopViperSlides();
-            }
+        } else if(gamepad.left_trigger<=0){
+            robot.stopShoot();
         }
     }
 
@@ -65,6 +65,10 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void buttonAPress(BlazersRobot robot) {
         if(gamepad.a) {
+            shootOn=true;
+        }
+        if(shootOn) {
+            robot.shoot();
 
         }
 
@@ -73,6 +77,10 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void buttonBPress(BlazersRobot robot) {
         if(gamepad.b) {
+            shootOn=false;
+        }
+        if(!shootOn) {
+            robot.stopShoot();
 
         }
     }
@@ -87,6 +95,7 @@ public  class BlazersGamePad2 implements BlazersGamePad{
     @Override
     public void buttonYPress(BlazersRobot robot) {
         if(gamepad.y) {
+
 
         }
     }
